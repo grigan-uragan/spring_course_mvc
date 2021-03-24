@@ -1,8 +1,6 @@
 package ru.grigan.spring.mvc.models;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,6 +9,10 @@ public class Employee {
     private String name;
     @NotBlank(message = "surname is required field ")
     private String surname;
+    @Pattern(regexp = "\\d{3}-\\d{2}-\\d{2}", message = "your phone number must have view XXX-XX-XX")
+    private String phone;
+    @Min(value = 100, message = "your salary must be more than 100")
+    @Max(value = 1000, message = "your salary must be less than 1001")
     private int salary;
     private String department;
     private Map<String, String> departments;
@@ -110,6 +112,14 @@ public class Employee {
 
     public void setLangList(Map<String, String> langList) {
         this.langList = langList;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     @Override

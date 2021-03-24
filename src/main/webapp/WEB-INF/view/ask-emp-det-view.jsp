@@ -14,6 +14,9 @@
     Surname<form:input path="surname"/>
     <form:errors path="surname"/>
     <br>
+    Phone number<form:input path="phone"/>
+    <form:errors path="phone"/>
+    <br>
     Salary<form:input path="salary"/>
     <form:errors path="salary"/>
     <br>

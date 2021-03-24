@@ -10,6 +10,7 @@
 <h2>Your details</h2>
 <p>${employee.name}</p>
 <p>${employee.surname}</p>
+<p>${employee.phone}</p>
 <p>${employee.salary}</p>
 <p>${employee.department}</p>
 <p>${employee.carBrand}</p>
