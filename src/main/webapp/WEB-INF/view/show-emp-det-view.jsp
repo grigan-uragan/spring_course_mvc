@@ -6,9 +6,10 @@
     <title>Title</title>
 </head>
 <body>
-
-<h2>Hello ${param.employeeName}</h2>
-<h2>Hello ${attributeName}</h2>
+<h2>Your details</h2>
+<p>${employee.name}</p>
+<p>${employee.surname}</p>
+<p>${employee.salary}</p>
 
 
 </body>
