@@ -2,12 +2,14 @@ package ru.grigan.spring.mvc.controlers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.grigan.spring.mvc.models.Employee;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 @Controller
 public class MyController {
@@ -37,7 +39,12 @@ public class MyController {
 //    }
 
     @RequestMapping("/showDetails")
-    public String showDetails(@ModelAttribute("employee") Employee employee) {
-        return "show-emp-det-view";
+    public String showDetails(@Valid @ModelAttribute("employee") Employee employee,
+                              BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "ask-emp-det-view";
+        } else {
+            return "show-emp-det-view";
+        }
     }
 }
