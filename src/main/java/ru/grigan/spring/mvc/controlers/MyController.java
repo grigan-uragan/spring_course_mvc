@@ -3,6 +3,7 @@ package ru.grigan.spring.mvc.controlers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -24,10 +25,17 @@ public class MyController {
 //        return "show-emp-det-view";
 //    }
 
+//    @RequestMapping("/showDetails")
+//    public String showDetails(HttpServletRequest request, Model model) {
+//        String name = request.getParameter("employeeName");
+//        String result = "Mr. " + name;
+//        model.addAttribute("attributeName", result);
+//        return "show-emp-det-view";
+//    }
+
     @RequestMapping("/showDetails")
-    public String showDetails(HttpServletRequest request, Model model) {
-        String name = request.getParameter("employeeName");
-        String result = "Mr. " + name;
+    public String showDetails(@RequestParam("employeeName")String name, Model model) {
+        String result = "Mr. " + name + "!";
         model.addAttribute("attributeName", result);
         return "show-emp-det-view";
     }
